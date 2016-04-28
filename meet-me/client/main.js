@@ -8,12 +8,10 @@ import './user.js'
 import './profile.js'
 import './route.js'
 import './rooms.js'
-<<<<<<< HEAD
 import './reservations.js'
-=======
 import './time.js'
 import './results.js'
->>>>>>> origin/develop
+
 import './main.html';
 
 Router.route('/', {
