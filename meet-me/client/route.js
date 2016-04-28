@@ -4,20 +4,17 @@ import './route.html';
 
 Template.getRoute.events({
   'click button'(event, instance) {
-    const test = Meteor.call('getRoute', function(err, result){
+
+    var addressesRooms = ["Brugge", "Gent", "Hasselt"];
+    var addressesParticipants = ["Antwerpen", "Brussel"];
+
+    var test = Meteor.call('getRoute', 10221939, addressesRooms, addressesParticipants, function(err, result){
         if (err) {
           window.alert("Error: " + err.reason);
         } else {
           console.log("help");
-          console.log("resultJson: " + result.data.destination_addresses);
 
-          const tijden = [];
-          result.data.rows.forEach(function(row){
-            tijden.push({"text": row.elements[0].distance.text});
-            tijden.push({"text": row.elements[0].duration.text});
-          });
-
-          Session.set("routeOptions", tijden);
+          Session.set("routeOptions", result);
         }
     });
   },
