@@ -9,12 +9,6 @@ import './user.js'
 import './route.js'
 import './main.html';
 
-Template.getRoute.events({
-  'click button'(event, instance) {
-    Meteor.call('getRoute');
-  },
-});
-
 Router.route('/', {
     name:'home',
     template: 'home'
