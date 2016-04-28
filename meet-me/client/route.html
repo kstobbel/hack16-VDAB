@@ -3,7 +3,12 @@
 
   <ul>
     {{#each routeOptions}}
-      <li>({{participant}} -> {{room}}): {{duration}},{{distance}}</li>
+      <li>Room = {{room}}</li>
+      <ul>
+        {{#each content}}
+          <li>{{participant}}: {{distance}}, {{duration}}</li>
+        {{/each}}
+      </ul>
       {{/each}}
   </ul>
 
