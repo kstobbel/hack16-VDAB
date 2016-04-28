@@ -14,36 +14,24 @@
     </div>
 
     <ul class="collection">
+      {{#each getAllUserInfo}}
       <a class="collection-item avatar">
+      <a class="userselected" name="{{owner}}">
         <i class="material-icons circle light-green">account_circle</i>
-        <span class="title"><b>An Vanderloock</b></span>
+      </a>
+        <span class="title"><b>{{name}}</b></span>
         <div class="row">
-           <div class="col m6 left">Interleuvenlaan 27 3000 Heverlee</div>
-           <div class="col m2 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
-           <div class="col m2 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
-           <div class="col m2 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m6 left">{{address}}</div>
+           {{#each transportations}}
+             {{#if isOption}}
+                <div class="col m2 center light green"><img src="{{type}}.png" width="50" length="50" alt="" class="responsive-img"></div>
+                {{else}}
+                   <div class="col m2 center red"><img src="{{type}}.png" width="50" length="50" alt="" class="responsive-img"></div>
+             {{/if}}
+           {{/each}}
         </div>
       </a>
-      <a class="collection-item avatar">
-        <i class="material-icons circle light-green">account_circle</i>
-        <span class="title"><b>Ellen Van Molle</b></span>
-        <div class="row">
-           <div class="col m6 left">Nieuwelaan 90/3 1860 Meise</div>
-           <div class="col m2 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
-           <div class="col m2 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
-           <div class="col m2 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
-        </div>
-      </a>
-      <a class="collection-item avatar active teal">
-        <i class="material-icons circle light green">account_circle</i>
-        <span class="title"><b>Tom Van Heddegem</b></span>
-        <div class="row">
-           <div class="col m6 left">Parkstraat 140/7 1860 Meise</div>
-           <div class="col m2 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
-           <div class="col m2 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
-           <div class="col m2 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
-        </div>
-      </a>
+      {{/each}}
     </ul>
   </div>
 </template>

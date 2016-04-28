@@ -8,7 +8,10 @@ import './user.js'
 import './profile.js'
 import './route.js'
 import './rooms.js'
+import './reservations.js'
 import './time.js'
+import './results.js'
+
 import './main.html';
 
 Router.route('/', {
@@ -36,7 +39,19 @@ Router.route('/profile', {
     template: 'profile'
 });
 
+
+Router.route('/reservations', {
+    name: 'reservations',
+    template: 'reservations'
+});
+	
 Router.route('/time', {
     name: 'time',
     template: 'time'
+});
+
+Router.route('/results', {
+    name: 'results',
+    template: 'results'
+
 });
