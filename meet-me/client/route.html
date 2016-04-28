@@ -1,5 +1,12 @@
 <template name="route">
   {{> getRoute}}
+
+  <ul>
+    {{#each routeOptions}}
+      <li>{{text}}</li>
+      {{/each}}
+  </ul>
+
 </template>
 
 <template name="getRoute">

@@ -9,8 +9,20 @@ Template.getRoute.events({
           window.alert("Error: " + err.reason);
         } else {
           console.log("help");
-          console.log("resultJson: " + result);
+          console.log("resultJson: " + result.data.destination_addresses);
+
+          const tijden = [];
+          result.data.rows.forEach(function(row){
+            tijden.push({"text": row.elements[0].distance.text});
+            tijden.push({"text": row.elements[0].duration.text});
+          });
+
+          Session.set("routeOptions", tijden);
         }
     });
   },
 });
+
+Template.route.routeOptions = function () {
+  return Session.get("routeOptions") || [];
+};
