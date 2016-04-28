@@ -55,8 +55,8 @@ modules@0.6.1
 modules-runtime@0.6.3
 mongo@1.1.7
 mongo-id@1.0.4
-npm-bcrypt@0.8.5
 mrt:q@1.0.1
+npm-bcrypt@0.8.5
 npm-mongo@1.4.43
 oauth@1.1.10
 oauth2@1.1.9
