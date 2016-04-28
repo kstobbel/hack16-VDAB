@@ -1,4 +1,4 @@
-Deze file bevat de database commands die werden gebruikt om de zalen en personen toe te voegen aan de database. 
+Deze file bevat de database commands die werden gebruikt om de zalen en personen toe te voegen aan de database.
 
 Collection rooms
 	room:
@@ -8,23 +8,22 @@ Collection rooms
 		website
 		capacity
 		openinghours
-		conditions 
+		conditions
 		infrastructure: { type
 							number}
-		
-Collection attendees
-	attendee
+
+Collection userinfo
 		name
 		address
-		emailaddress
+		email
 		transportation:{
 						type
-						maxTime}
+						maxTime
 						maxDistance}
-		
-		
+
+
 db.rooms.insert({name:"De Werf", address:"Hogeschoolplein 5 3000 Leuven", emailaddress:"dewerf@test.be", website:"http://www.dewerf-leuven.be", capacity:"20", openinghours:"maandag t.e.m. vrijdag open van 9.00u tot 24.00u", conditions:"drinks", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi",number:"1"}]});
-		
+
 db.rooms.insert({name:"Comme chez soi", address:"Rouppeplein 23 1000 Brussel", emailaddress:"commechezsoi@test.be", website:"https://www.commechezsoi.be/nl-nl/Comme-chez-soi", capacity:"5", openinghours:"dinsdag- en woensdagavond, donderdag, vrijdag en zaterdag", conditions:"food", infrastructure:[{type: "Wifi", number:"1"}, {type:"Computer",number:"2"}, {type:"Flipchart",number:"2"}]});
 
 db.rooms.insert({name:"Balls and Glory Gent", address:"Jakobijnenstraat 6 9000 Gent", emailaddress:"ballsnglory@test.be", website:"https://www.ballsnglory.be/honger/gent", capacity:"30", openinghours:"maandag t/m zaterdag van 10u tot 21u", conditions:"free", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi", number:"1"}, {type:"Smartboard", number:"1"}, {type:"Computer", number:"1"}]});

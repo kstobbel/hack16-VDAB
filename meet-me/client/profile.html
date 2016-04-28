@@ -1,4 +1,20 @@
 <template name="profile">
-    <form class="edit-profile">
-    </form>
+  <form>
+    {{#each getUserInfo}}
+      <div class="container">
+        <label>Naam: </label>
+        <input type="text" name="nameUser" value="{{name}}">
+        <label>Address: </label>
+        <input type="text" name="addressUser" value="{{address}}">
+        <label>Email: </label>
+        <input type="text" name="emailUser" value="{{email}}" readonly="true">
+        <label>Transportmiddelen: </label><br/>
+        {{#each transportations}}
+          <input type="checkbox" name="{{type}}" value="{{isOption}}"> <label>{{type}}</label><br/>
+        {{/each}}
+        <br/>
+        <input type="submit" value="Profiel updaten">
+      </div>
+    {{/each}}
+  </form>
 </template>

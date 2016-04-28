@@ -1,50 +1,49 @@
 <template name="user">
-  <h5 align="center">Stap 1: Met wie wil je afspreken?</h5>
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Zoek</label>
+  <div class="container">
+    <h5 align="center">Stap 1: Met wie wil je afspreken?</h5>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix">Zoek</label>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
 
-  <ul class="collection">
-    <a class="collection-item avatar">
-      <i class="material-icons circle">account_circle</i>
-      <span class="title"><b>An Vanderloock</b></span>
-      <div class="row">
-         <div class="col m4 left">Interleuvenlaan 27 3000 Heverlee</div>
-         <div class="col m2 center red">auto</div>
-         <div class="col m2 center light green">fiets</div>
-         <div class="col m2 center light green">bus</div>
-         <div class="col m2 center light green">trein</div>
-      </div>
-    </a>
-    <a class="collection-item avatar">
-      <i class="material-icons circle light-green">account_circle</i>
-      <span class="title"><b>Ellen Van Molle</b></span>
-      <div class="row">
-         <div class="col m4 left">Nieuwelaan 90/3 1860 Meise</div>
-         <div class="col m2 center light green">auto</div>
-         <div class="col m2 center light green">fiets</div>
-         <div class="col m2 center light green">bus</div>
-         <div class="col m2 center light green">trein</div>
-      </div>
-    </a>
-    <a class="collection-item avatar active light-green">
-      <i class="material-icons circle light-green">account_circle</i>
-      <span class="title"><b>Tom Van Heddegem</b></span>
-      <div class="row">
-         <div class="col m4 left">Parkstraat 140/7 1860 Meise</div>
-         <div class="col m2 center green">auto</div>
-         <div class="col m2 center green">fiets</div>
-         <div class="col m2 center red">bus</div>
-         <div class="col m2 center green">trein</div>
-      </div>
-    </a>
-  </ul>
+    <ul class="collection">
+      <a class="collection-item avatar">
+        <i class="material-icons circle light-green">account_circle</i>
+        <span class="title"><b>An Vanderloock</b></span>
+        <div class="row">
+           <div class="col m6 left">Interleuvenlaan 27 3000 Heverlee</div>
+           <div class="col m2 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m2 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m2 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
+        </div>
+      </a>
+      <a class="collection-item avatar">
+        <i class="material-icons circle light-green">account_circle</i>
+        <span class="title"><b>Ellen Van Molle</b></span>
+        <div class="row">
+           <div class="col m6 left">Nieuwelaan 90/3 1860 Meise</div>
+           <div class="col m2 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m2 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m2 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
+        </div>
+      </a>
+      <a class="collection-item avatar active teal">
+        <i class="material-icons circle light green">account_circle</i>
+        <span class="title"><b>Tom Van Heddegem</b></span>
+        <div class="row">
+           <div class="col m6 left">Parkstraat 140/7 1860 Meise</div>
+           <div class="col m2 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m2 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
+           <div class="col m2 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
+        </div>
+      </a>
+    </ul>
+  </div>
 </template>
