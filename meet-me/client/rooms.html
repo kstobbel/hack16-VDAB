@@ -1,9 +1,11 @@
 <template name="rooms">
-  <h5>Rooms</h5>
+  <h4>Rooms</h4>
 
   {{#each rooms}}
  <div class="card small">
-    
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="meetingroom.jpg" height="42" width="42">
+    </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4"><p><strong>{{name}}</strong></p>{{address}}<i class="material-icons right">more_vert</i></span>
     </div>
