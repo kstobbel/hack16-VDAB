@@ -4,7 +4,7 @@ import './reservations.html'
 
 import { Mongo } from 'meteor/mongo';
 
-export const Reservations = new Mongo.Collection('reservations');
+import { Reservations } from '../imports/api/reservations-api.js';
 
 Template.reservations.helpers({
   reservations() {

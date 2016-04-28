@@ -43,6 +43,7 @@ Router.route('/profile', {
 Router.route('/reservations', {
     name: 'reservations',
     template: 'reservations'
+});
 	
 Router.route('/time', {
     name: 'time',
