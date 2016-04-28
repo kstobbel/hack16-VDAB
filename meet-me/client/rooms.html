@@ -1,3 +1,39 @@
 <template name="rooms">
-  <h2>Rooms</h2>
+  <h5>Rooms</h5>
+
+  {{#each rooms}}
+ <div class="card small">
+    
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><p><strong>{{name}}</strong></p>{{address}}<i class="material-icons right">more_vert</i></span>
+    </div>
+	<div class="card-action">
+       <a href={{website}} target="new">Website</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><strong>{{name}}</strong><i class="material-icons right">close</i></span>
+      <ul>
+		<li><strong>Address </Strong>{{address}}</li>
+		<li><strong>Email address </Strong>{{emailaddress}}</li>
+		<li><strong>Capacity </Strong>{{capacity}}</li>
+		<li><strong>Opening hours </Strong>{{openinghours}}</li>
+		<li><strong>Conditions </Strong>{{conditions}}</li>
+		<li><strong>Infrastructure </Strong>
+			<ul>
+				{{#each infrastructure}}
+				<li style="margin-left: 40px">{{type}} ({{number}})</li>
+				{{/each}}
+			</ul>
+		</li>
+	  </ul>
+    </div>
+	
+  </div>
+{{/each}}
+
+
+  
 </template>
+
+
+
