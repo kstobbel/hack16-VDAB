@@ -1,11 +1,12 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
  
 import './body.html';
+import { Rooms } from '../api/rooms.js';
  
 Template.body.helpers({
-  tasks: [
-    { text: 'This is task 1' },
-    { text: 'This is task 2' },
-    { text: 'This is task 3' },
-  ],
+  rooms() {
+    return Rooms.find({});
+  },
 });

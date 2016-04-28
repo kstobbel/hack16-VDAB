@@ -1,19 +1,23 @@
+<head>
+  <title>(M)eat-me</title>
+</head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Todo List</h1>
-    </header>
+  <h1>Welcome to Meat-me!</h1>
+  {{> loginButtons}} <br>
+  {{#if currentUser}}
+	{{> hello}}
+  {{/if}}
+  <p>Your available rooms are:</p>
+
 	
-	{{> loginButtons}}
- 
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
-  </div>
+
+
 </body>
- 
-<template name="task">
-  <li>{{text}}</li>
+
+<template name="hello">
+  
+  <p> Welcome, {{currentUser.username}}</p>
 </template>
+
+
