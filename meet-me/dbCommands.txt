@@ -2,6 +2,7 @@ Deze file bevat de database commands die werden gebruikt om de zalen en personen
 
 Collection rooms
 	room:
+		id
 		name
 		address (street, nb, city)
 		emailaddress
@@ -13,6 +14,7 @@ Collection rooms
 							number}
 
 Collection userinfo
+		userId
 		name
 		address
 		email
@@ -22,10 +24,21 @@ Collection userinfo
 						maxDistance}
 
 
-db.rooms.insert({name:"De Werf", address:"Hogeschoolplein 5 3000 Leuven", emailaddress:"dewerf@test.be", website:"http://www.dewerf-leuven.be", capacity:"20", openinghours:"maandag t.e.m. vrijdag open van 9.00u tot 24.00u", conditions:"drinks", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi",number:"1"}]});
+Collection reservations
+	reservation:
+		reservationId
+		time
+		date
+		remarks
+		organizer (link nr userid)
+		attendees: [(link nr user id)]
+		location: ref naar room
+		
+						
+db.rooms.insert({id:"1", name:"De Werf", address:"Hogeschoolplein 5 3000 Leuven", emailaddress:"dewerf@test.be", website:"http://www.dewerf-leuven.be", capacity:"20", openinghours:"maandag t.e.m. vrijdag open van 9.00u tot 24.00u", conditions:"drinks", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi",number:"1"}]});
 
-db.rooms.insert({name:"Comme chez soi", address:"Rouppeplein 23 1000 Brussel", emailaddress:"commechezsoi@test.be", website:"https://www.commechezsoi.be/nl-nl/Comme-chez-soi", capacity:"5", openinghours:"dinsdag- en woensdagavond, donderdag, vrijdag en zaterdag", conditions:"food", infrastructure:[{type: "Wifi", number:"1"}, {type:"Computer",number:"2"}, {type:"Flipchart",number:"2"}]});
+db.rooms.insert({id:"2", name:"Comme chez soi", address:"Rouppeplein 23 1000 Brussel", emailaddress:"commechezsoi@test.be", website:"https://www.commechezsoi.be/nl-nl/Comme-chez-soi", capacity:"5", openinghours:"dinsdag- en woensdagavond, donderdag, vrijdag en zaterdag", conditions:"food", infrastructure:[{type: "Wifi", number:"1"}, {type:"Computer",number:"2"}, {type:"Flipchart",number:"2"}]});
 
-db.rooms.insert({name:"Balls and Glory Gent", address:"Jakobijnenstraat 6 9000 Gent", emailaddress:"ballsnglory@test.be", website:"https://www.ballsnglory.be/honger/gent", capacity:"30", openinghours:"maandag t/m zaterdag van 10u tot 21u", conditions:"free", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi", number:"1"}, {type:"Smartboard", number:"1"}, {type:"Computer", number:"1"}]});
+db.rooms.insert({id:"3", name:"Balls and Glory Gent", address:"Jakobijnenstraat 6 9000 Gent", emailaddress:"ballsnglory@test.be", website:"https://www.ballsnglory.be/honger/gent", capacity:"30", openinghours:"maandag t/m zaterdag van 10u tot 21u", conditions:"free", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi", number:"1"}, {type:"Smartboard", number:"1"}, {type:"Computer", number:"1"}]});
 
-db.rooms.insert({name:"Aux pavés de Bruxelles", address:"JKaasmarkt 1 1000 Brussel", emailaddress:"pave@test.be", capacity:"15", openinghours:"always open", conditions:"food"});
+db.rooms.insert({id:"4", name:"Aux pavés de Bruxelles", address:"JKaasmarkt 1 1000 Brussel", emailaddress:"pave@test.be", capacity:"15", openinghours:"always open", conditions:"food"});
