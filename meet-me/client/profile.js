@@ -13,9 +13,9 @@ Template.profile.helpers({
           owner: Meteor.userId(),
           email: Meteor.user().emails[0].address,
           transportations:[
-            {type: "Bike", isOption: "0" },
-            {type: "Car", isOption: "0"},
-            {type: "PublicTransportation", isOption: "0"}
+            {type: "Bike", isOption: false },
+            {type: "Car", isOption: false},
+            {type: "PublicTransportation", isOption: false}
           ]
         });
         return [Users.findOne({owner: Meteor.userId()})];
@@ -36,9 +36,9 @@ Template.profile.events({
         address: target.addressUser.value,
         email: Meteor.user().emails[0].address,
         transportations: [
-          {type: "Bike", isOption: target.Bike.value},
-          {type: "Car", isOption: target.Car.value},
-          {type: "PublicTransportation", isOption: target.PublicTransportation.value}
+          {type: "Bike", isOption: false},
+          {type: "Car", isOption: true},
+          {type: "PublicTransportation", isOption: false}
         ]
       }
     });
