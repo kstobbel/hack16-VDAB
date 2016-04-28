@@ -31,6 +31,7 @@ email@1.0.12
 es5-shim@4.5.10
 fastclick@1.0.11
 geojson-utils@1.0.8
+google@1.1.11
 hot-code-push@1.0.4
 html-tools@1.0.9
 htmljs@1.0.9
@@ -55,9 +56,13 @@ modules-runtime@0.6.3
 mongo@1.1.7
 mongo-id@1.0.4
 npm-bcrypt@0.8.5
+mrt:q@1.0.1
 npm-mongo@1.4.43
+oauth@1.1.10
+oauth2@1.1.9
 observe-sequence@1.0.11
 ordered-dict@1.0.7
+percolate:google-api@1.0.3
 promise@0.6.7
 random@1.0.9
 rate-limit@1.0.4
