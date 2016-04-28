@@ -11,3 +11,18 @@ Template.getRoute.events({
     Meteor.call('getRoute');
   },
 });
+
+Router.route('/', {
+    name:'home',
+    template: 'home'
+});
+
+Router.route('/user', {
+    name: 'user',
+    template: 'user'
+});
+
+Router.route('/route', {
+    name: 'route',
+    template: 'route'
+});
