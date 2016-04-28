@@ -9,6 +9,7 @@ import './profile.js'
 import './route.js'
 import './rooms.js'
 import './time.js'
+import './results.js'
 import './main.html';
 
 Router.route('/', {
@@ -39,4 +40,9 @@ Router.route('/profile', {
 Router.route('/time', {
     name: 'time',
     template: 'time'
+});
+
+Router.route('/results', {
+    name: 'results',
+    template: 'results'
 });
