@@ -1,0 +1,17 @@
+<head>
+  <title>(M)eat-me</title>
+</head>
+
+<body>
+  <h1>Welcome to Meat-me!</h1>
+  {{> loginButtons}} <br>
+  {{#if currentUser}}
+	{{> hello}}
+  {{/if}}
+
+</body>
+
+<template name="hello">
+  
+  <p> Welcome, {{currentUser.username}}</p>
+</template>
