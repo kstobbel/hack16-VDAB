@@ -3,8 +3,8 @@
     <div class="container">
   <h5>List of reservations</h5>
 
-  <p> Wauw, it's a list of all my reservations!</p>
-  <h6>Reservations I made</h6>
+  <p> Wow, een lijst met al mijn reservaties!</p>
+  <h6>Reservaties die ik organiseer</h6>
 	{{#each myReservations}}
 
 	<div class="row">
@@ -12,26 +12,26 @@
           <div class="card lighten-1">
             <div class="card-content black-text">
               <span class="card-title">{{date}} - {{time}}</span>
-                <p><strong>Location:</strong> {{rooms(location)}} <br>
-                  <strong>Meeting owner:</strong> {{findUser(owner)}} <br>
-                  <strong>Attendees:</strong>
+                <p><strong>Locatie:</strong> {{rooms(location)}} <br>
+                  <strong>Organisator:</strong> {{findUser(owner)}} <br>
+                  <strong>Aanwezigen:</strong>
                   <ul>
                   {{#each attendees}}
                   <li style="margin-left: 40px">  {{findUser(attendeeId)}} </li>
                    {{/each}}
                  </ul>
-                   <strong>Remarks:</strong> {{remarks}}</p>
+                   <strong>Opmerkingen:</strong> {{remarks}}</p>
             </div>
             <div class="card-action">
-              <a href="#">Update this reservation</a>
-              <a href="#">Delete this reservation</a>
+              <a href="#">Bewerk deze reservatie</a>
+              <a href="#">Annuleer deze reservatie</a>
             </div>
           </div>
         </div>
       </div>
 
   {{/each}}
-  <h6>Reservations I participate in</h6>
+  <h6>Reservaties waarvoor ik ben uitgenodigd</h6>
   {{#each attendReservations}}
 
 	<div class="row">
@@ -39,19 +39,19 @@
           <div class="card lighten-1">
             <div class="card-content black-text">
               <span class="card-title">{{date}} - {{time}}</span>
-                <p><strong>Location:</strong> {{rooms(location)}} <br>
-                  <strong>Meeting owner:</strong> {{findUser(owner)}} <br>
-                  <strong>Attendees:</strong>
+                <p><strong>Locatie:</strong> {{rooms(location)}} <br>
+                  <strong>Organisator:</strong> {{findUser(owner)}} <br>
+                  <strong>Aanwezigen:</strong>
                   <ul>
                   {{#each attendees}}
                   <li style="margin-left: 40px">  {{findUser(attendeeId)}} </li>
                    {{/each}}
                  </ul>
-                   <strong>Remarks:</strong> {{remarks}}</p>
+                   <strong>Opmerkingen:</strong> {{remarks}}</p>
             </div>
             <div class="card-action">
-              <a href="#">Update this reservation</a>
-              <a href="#">Delete this reservation</a>
+              <a href="#">Bewerk deze reservatie</a>
+              <a href="#">Annuleer deze reservatie</a>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
 
   {{/each}}
 
-<h5>Add a new reservation</h5>
+<!-- <h5>Add a new reservation</h5>
 
 <div class="row">
   <form class="col s12">
@@ -103,7 +103,7 @@
         <i class="material-icons right">send</i>
     </button>
   </form>
-</div>
+</div> -->
 
 
 </div>

@@ -9,6 +9,7 @@ import { Reservations } from '../imports/api/reservations-api.js';
 
 import './make-reservation.html';
 import './user.js'
+import './time.js'
 
 Session.set("firstStep", true);
 Session.set("secondStep", false);
@@ -42,6 +43,18 @@ Template.makereservation.helpers({
 
   currentUser: function () {
     return Users.findOne({"owner": Meteor.userId()});
+  },
+
+  startTime: function () {
+    return Session.get("selectedFrom") || [];
+  },
+
+  endTime: function () {
+    return Session.get("selectedUntil") || [];
+  },
+
+  selectedDate: function () {
+    return Session.get("selectedDate") || [];
   },
 
 });
