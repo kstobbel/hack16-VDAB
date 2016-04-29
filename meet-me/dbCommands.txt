@@ -31,10 +31,10 @@ Collection reservations
 		date
 		remarks
 		organizer (link nr userid)
-		attendees: [(link nr user id)]
+		attendees: [attendeeId: (link nr user id)]
 		location: ref naar room
-		
-						
+
+
 db.rooms.insert({id:"1", name:"De Werf", address:"Hogeschoolplein 5 3000 Leuven", emailaddress:"dewerf@test.be", website:"http://www.dewerf-leuven.be", capacity:"20", openinghours:"maandag t.e.m. vrijdag open van 9.00u tot 24.00u", conditions:"drinks", infrastructure:[{type: "Beamer", number:"1"}, {type:"Wifi",number:"1"}]});
 
 db.rooms.insert({id:"2", name:"Comme chez soi", address:"Rouppeplein 23 1000 Brussel", emailaddress:"commechezsoi@test.be", website:"https://www.commechezsoi.be/nl-nl/Comme-chez-soi", capacity:"5", openinghours:"dinsdag- en woensdagavond, donderdag, vrijdag en zaterdag", conditions:"food", infrastructure:[{type: "Wifi", number:"1"}, {type:"Computer",number:"2"}, {type:"Flipchart",number:"2"}]});

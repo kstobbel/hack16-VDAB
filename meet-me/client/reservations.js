@@ -9,12 +9,20 @@ import './reservations.html'
 
 
 Template.reservations.helpers({
-  reservations() {
-	 console.log(Reservations.find({}).count());
-    return Reservations.find({});
+  myReservations() {
+    return Reservations.find({owner: Meteor.userId()});
+  },
+  attendReservations() {
+    return Reservations.find({attendees: {attendeeId: Meteor.userId() }});
   },
   rooms(roomid) {
-    return Rooms.findOne({id: roomid});
+    return Rooms.findOne({id: roomid}).name;
+  },
+  findUser(attendeeId) {
+    if (Users.findOne({owner: attendeeId}) != null) {
+      return Users.findOne({owner: attendeeId}).name;
+    }
+    return "";
   },
 
 });
@@ -31,11 +39,11 @@ Template.reservations.events({
     var remarks = event.target.remarks.value;
     var locationName= event.target.location.value;
 
-    var attendee1Id= Users.findOne({name: attendee1Name}).owner;
+    var attendeeId= Users.findOne({name: attendee1Name}).owner;
     var locationId= Rooms.findOne({name: locationName}).id;
 
     // Insert a task into the collection
-    Meteor.call('reservations.insert', date, time, attendee1Id, locationId, remarks);
+      Meteor.call('reservations.insert', date, time, {attendeeId}, locationId, remarks);
 
      //Clear form
      event.target.date.value = '';
