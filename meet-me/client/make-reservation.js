@@ -10,6 +10,8 @@ import './make-reservation.html';
 import './user.js'
 
 Session.set("firstStep", true);
+Session.set("secondStep", false);
+Session.set("thirdStep", false);
 
 Template.makereservation.helpers({
   firstStep: function(){
@@ -31,6 +33,7 @@ Template.makereservation.helpers({
 
 Template.makereservation.events({
   "click #stepOneButton": function(event){
+    console.log(event);
     Session.set("firstStep", null);
     Session.set("secondStep", true);
   },

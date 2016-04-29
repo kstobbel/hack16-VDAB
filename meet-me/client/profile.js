@@ -15,7 +15,7 @@ Template.profile.helpers({
   //        email: Meteor.user().emails[0].address,
           transportations:[
             {type: "Bike", isOption: false },
-            {type: "Car", isOption: false},
+            {type: "Car1", isOption: false},
             {type: "PublicTransportation", isOption: false}
           ]
         });
@@ -27,7 +27,7 @@ Template.profile.helpers({
             email: Meteor.user().emails[0].address,
             transportations:[
               {type: "Bike", isOption: false },
-              {type: "Car", isOption: false},
+              {type: "Car1", isOption: false},
               {type: "PublicTransportation", isOption: false}
             ]
           });
@@ -49,7 +49,7 @@ Template.profile.events({
     //    email: Meteor.user().emails[0].address,
         transportations: [
           {type: "Bike", isOption: false},
-          {type: "Car", isOption: true},
+          {type: "Car1", isOption: true},
           {type: "PublicTransportation", isOption: false}
         ]
       }
