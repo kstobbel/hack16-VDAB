@@ -124,7 +124,7 @@ Template.makereservation.events({
       participants.push({"attendeeId": route.participant.owner});
     });
 
-    Meteor.call('reservations.insert', Session.get("selectedDate"), Session.get("selectedFrom"), participants, selectedRouteOption.room.id, "Hoera, een meeting!");
+    Meteor.call('reservations.insert', Session.get("selectedDate"), Session.get("selectedFrom"), participants, selectedRouteOption.room.id, Session.get("remark"));
 
     Router.go('/reservations');
     Session.set("firstStep", true);
@@ -145,5 +145,10 @@ Template.makereservation.events({
     Session.set("fourthStep", null);
     Session.set("thirdStep", true);
   },
+  "change #remarkInput": function(event){
+    console.log("INPUT " + event.target.value);
+    Session.set("remark", event.target.value);
+  },
+
 
 });
