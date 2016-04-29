@@ -1,11 +1,11 @@
 <template name="usermanagement">
   {{#if currentUser}}
     <li class="teal-text">
-      <p>Welkom {{currentUser.username}}!
+      <p>Welkom {{>loginButtons}}!
         <span class="teal-text material-icons"><a class="teal-text" href="/profile">account_circle</a></span>
       </p>
     </li>
   {{else}}
-    <li><a href="#">{{>loginButtons}}</a></li>
+    <li><a href="#" class="teal-text">{{>loginButtons}}</a></li>
   {{/if}}
 </template>
