@@ -4,21 +4,20 @@
     <div class="container">
       {{>user}}
 
-      <input type="button" id="stepOneButton" align="right" class="btn-large waves-effect waves-light light-green lighten-1 right-align" value="Volgende stap">
+      <input type="button" id="stepOneButton" align="right" class="btn-large waves-effect waves-light light-green lighten-1 right" value="Volgende stap">
     </div>
   {{/if}}
 
   {{#if (secondStep)}}
     <div class="container">
       {{>time}}
-      <input type="button" id="stepTwoBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
-      <input type="button" id="stepTwoButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Volgende stap">
+      <input type="button" id="stepTwoBackButton"  class="btn-large waves-effect waves-light light-green lighten-1 left" value="Vorige stap">
+      <input type="button" id="stepTwoButton" class="btn-large waves-effect waves-light light-green lighten-1 right" value="Volgende stap">
     </div>
   {{/if}}
 
   {{#if (thirdStep)}}
     <div class="container">
-      <div class="container">
         <h4>Beschikbare zalen</h4>
         {{#each routeOptions}}
         <div class="row">
@@ -36,12 +35,12 @@
              <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><strong>{{room.name}}</strong><i class="material-icons right">close</i></span>
                 <ul>
-         		      <li><strong>Address </Strong>{{room.address}}</li>
-         		      <li><strong>Email address </Strong>{{room.emailaddress}}</li>
-         		      <li><strong>Capacity </Strong>{{room.capacity}}</li>
-         		      <li><strong>Opening hours </Strong>{{room.openinghours}}</li>
-         		      <li><strong>Conditions </Strong>{{room.conditions}}</li>
-         		      <li><strong>Infrastructure </Strong>
+         		      <li><strong>Adres </Strong>{{room.address}}</li>
+         		      <li><strong>E-mailadres </Strong>{{room.emailaddress}}</li>
+         		      <li><strong>Capaciteit </Strong>{{room.capacity}}</li>
+         		      <li><strong>Openingsuren </Strong>{{room.openinghours}}</li>
+         		      <li><strong>Gebruiksvoorwaarden </Strong>{{room.conditions}}</li>
+         		      <li><strong>Infrastructuur </Strong>
          			        <ul>
          				           {{#each room.infrastructure}}
          				              <li style="margin-left: 40px">{{type}} ({{number}})</li>
@@ -70,8 +69,7 @@
 
 
       {{/each}}
-        </div>
-        <input type="button" id="stepThreeBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
+        <input type="button" id="stepThreeBackButton"  class="btn-large waves-effect waves-light light-green lighten-1 left" value="Vorige stap">
     </div>
 
   {{/if}}
@@ -93,8 +91,8 @@
              </p>
           </div>
         </div>
-      <input type="button" id="stepFourBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
-      <input type="button" id="stepFourButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Bevestig mijn reservatie">
+      <input type="button" id="stepFourBackButton"  class="btn-large waves-effect waves-light light-green lighten-1 left" value="Vorige stap">
+      <input type="button" id="stepFourButton" class="btn-large waves-effect waves-light light-green lighten-1 right" value="Bevestig mijn reservatie">
     </div>
   {{/if}}
 

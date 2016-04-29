@@ -1,6 +1,6 @@
 <template name="results">
-<div class="container">
-  <h4>Beschikbare zalen</h4>
+  <br>
+  <h5>Beschikbare zalen</h5>
   {{#each rooms}}
   <div class="row">
     <div class="col m8">
@@ -17,12 +17,12 @@
        <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><strong>{{name}}</strong><i class="material-icons right">close</i></span>
           <ul>
-   		      <li><strong>Address </Strong>{{address}}</li>
-   		      <li><strong>Email address </Strong>{{emailaddress}}</li>
-   		      <li><strong>Capacity </Strong>{{capacity}}</li>
-   		      <li><strong>Opening hours </Strong>{{openinghours}}</li>
-   		      <li><strong>Conditions </Strong>{{conditions}}</li>
-   		      <li><strong>Infrastructure </Strong>
+   		      <li><strong>Adres </Strong>{{address}}</li>
+   		      <li><strong>E-mailadres </Strong>{{emailaddress}}</li>
+   		      <li><strong>Capaciteit </Strong>{{capacity}}</li>
+   		      <li><strong>Openingsuren </Strong>{{openinghours}}</li>
+   		      <li><strong>Gebruiksvoorwaarden </Strong>{{conditions}}</li>
+   		      <li><strong>Intrastructuur </Strong>
    			        <ul>
    				           {{#each infrastructure}}
    				              <li style="margin-left: 40px">{{type}} ({{number}})</li>
@@ -53,7 +53,6 @@
 
 
 {{/each}}
-  </div>
 
 
 </template>
