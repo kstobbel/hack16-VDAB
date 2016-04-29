@@ -4,16 +4,22 @@
     <h5>Stap 2: Wanneer wil je afspreken?</h5>
     <div class="row">
        <div class="col m4 left">
-         <label>Datum</label>
-         <input type="date" class="datepicker" name="selectedDate">
+         <div id="date-picker" class="section scrollspy">
+              <label for="todate">Datum</label>
+              <input id="todate" type="text" class="datepicker" name="selectedDate">
+          </div>
        </div>
        <div class="col m4 left">
-         <label>Van</label>
-         <input type="time" class="timepicker" name="selectedFrom">
+         <div id="time-picker-from" class="section scrollspy">
+              <label for="fromtime">Van</label>
+              <input id="fromtime" type="text" class="timepicker" name="selectedFrom">
+          </div>
        </div>
        <div class="col m4 left">
-         <label>Tot</label>
-         <input type="time" class="timepicker" name="selectedUntil">
+         <div id="time-picker-until" class="section scrollspy">
+              <label for="untiltime">Tot</label>
+              <input id="untiltime" type="text" class="timepicker" name="selectedUntil">
+          </div>
        </div>
     </div>
   </div>

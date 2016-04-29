@@ -10,3 +10,8 @@ Template.time.events({
     console.log('Input ' + Session.get(currentTarget.name));
   }
 });
+
+Template.time.rendered=function() {
+    $('.datepicker').pickadate();
+    $('.timepicker').pickatime()
+}
