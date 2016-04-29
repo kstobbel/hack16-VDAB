@@ -4,16 +4,23 @@
   <h5>List of reservations</h5>
 
   <p> Wauw, it's a list of all my reservations!</p>
+  <h6>Reservations I made</h6>
+	{{#each myReservations}}
 
-	{{#each reservations}}
 	<div class="row">
         <div class="col s12 m6">
-          <div class="card blight-green lighten-1">
+          <div class="card lighten-1">
             <div class="card-content black-text">
-              <span class="card-title">{{date}}  -{{time}}</span>
-              <p>Location: {{location}} <br>
-                 Attendees: {{attendees}} <br>
-                 Remarks: {{remarks}}</p>
+              <span class="card-title">{{date}} - {{time}}</span>
+                <p><strong>Location:</strong> {{rooms(location)}} <br>
+                  <strong>Meeting owner:</strong> {{findUser(owner)}} <br>
+                  <strong>Attendees:</strong>
+                  <ul>
+                  {{#each attendees}}
+                  <li style="margin-left: 40px">  {{findUser(attendeeId)}} </li>
+                   {{/each}}
+                 </ul>
+                   <strong>Remarks:</strong> {{remarks}}</p>
             </div>
             <div class="card-action">
               <a href="#">Update this reservation</a>
@@ -22,7 +29,35 @@
           </div>
         </div>
       </div>
-	{{/each}}
+
+  {{/each}}
+  <h6>Reservations I participate in</h6>
+  {{#each attendReservations}}
+
+	<div class="row">
+        <div class="col s12 m6">
+          <div class="card lighten-1">
+            <div class="card-content black-text">
+              <span class="card-title">{{date}} - {{time}}</span>
+                <p><strong>Location:</strong> {{rooms(location)}} <br>
+                  <strong>Meeting owner:</strong> {{findUser(owner)}} <br>
+                  <strong>Attendees:</strong>
+                  <ul>
+                  {{#each attendees}}
+                  <li style="margin-left: 40px">  {{findUser(attendeeId)}} </li>
+                   {{/each}}
+                 </ul>
+                   <strong>Remarks:</strong> {{remarks}}</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Update this reservation</a>
+              <a href="#">Delete this reservation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  {{/each}}
 
 <h5>Add a new reservation</h5>
 

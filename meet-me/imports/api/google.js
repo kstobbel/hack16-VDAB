@@ -1,26 +1,52 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.methods({
-    'getRoute': function(arrivalTime, addressesParticipants, addressesRooms ){
+    'getRoute': function(arrivalTime, participants, rooms){
 
           var results = [];
 
-          addressesParticipants.forEach(function (addressParticipant){
-            addressesRooms.forEach(function (addressRoom){
-              var response = calculateDistanceBetweenTwoAddresses(addressParticipant, addressRoom);
+          rooms.forEach(function (room){
+            var participantsInfoForRoom = [];
+            var maximalDuration = 0;
+            participants.forEach(function (participant){
+              var response = calculateDistanceBetweenTwoAddresses(participant.address, room.address);
               response.data.rows.forEach(function(row){
-                results.push({"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": addressParticipant, "room": addressRoom});
+                var participantInfoForRoom = {"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": participant, "room": room};
+                participantsInfoForRoom.push(participantInfoForRoom);
+                var currentDuration = parseGoogleDurationToInteger(participantInfoForRoom.duration);
+                if (maximalDuration < currentDuration){
+                  maximalDuration = currentDuration;
+                }
               });
             });
+            results.push({"content": participantsInfoForRoom, "room": room, "maximalDuration": maximalDuration});
           });
 
+          results = results.sort(function (a,b){
+            console.log(a.maximalDuration);
+            return a.maximalDuration - b.maximalDuration;
+          });
+
+          console.log(results);
           return results;
 
         },
 });
 
+function parseGoogleDurationToInteger(googleDuration){
+  console.log("Google duration: " + googleDuration);
+  var splittedGoogleDuration = googleDuration.split(" ");
+  if (splittedGoogleDuration.length > 3){
+    console.log(parseInt(splittedGoogleDuration[0]*60) + parseInt(splittedGoogleDuration[2], 10));
+    return parseInt(splittedGoogleDuration[0]*60) + parseInt(splittedGoogleDuration[2], 10);
+  } else {
+    console.log(splittedGoogleDuration[0]);
+    return splittedGoogleDuration[0];
+  }
+}
+
 function calculateDistanceBetweenTwoAddresses(addressA, addressB){
-  const response = HTTP.call( 'GET', 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + addressA + '&destinations=' + addressB + '&arrival_time=1463295600000&key=AIzaSyB2LZ7QHgblMmotbJzvzKk9Eo6rKWfty5k', {timeout:30000});
+  var response = HTTP.call( 'GET', 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + addressA + '&destinations=' + addressB + '&arrival_time=1463295600000&key=AIzaSyB2LZ7QHgblMmotbJzvzKk9Eo6rKWfty5k', {timeout:30000});
   console.log(response.statusCode);
 
   if (response.statusCode == 200) {

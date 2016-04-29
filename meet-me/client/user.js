@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Users } from '../imports/api/users.js';
+import { Session } from 'meteor/session';
 
 import './user.html'
 
@@ -7,7 +8,7 @@ var SelectedUsers = [];
 
 Template.user.helpers({
     getAllUserInfo() {
-      return Users.find({});
+      return Users.find({owner: {$ne: Meteor.userId()}});
     },
 });
 
@@ -22,6 +23,6 @@ Template.user.events({
       SelectedUsers = _(SelectedUsers).filter(su => su != ownerId);
       $("#"+ownerId+" i").removeClass("light-green");
     }
-    console.log(SelectedUsers);
+    Session.set("selectedUsers", SelectedUsers);
   }
 });

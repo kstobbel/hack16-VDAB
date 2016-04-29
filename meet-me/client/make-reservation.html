@@ -1,0 +1,98 @@
+<template name="makereservation">
+
+  {{#if (firstStep)}}
+    <div class="container">
+      {{>user}}
+      <input type="button" id="stepOneButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+    </div>
+  {{/if}}
+
+  {{#if (secondStep)}}
+    <div class="container">
+      {{>time}}
+      <input type="button" id="stepTwoButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+    </div>
+  {{/if}}
+
+  {{#if (thirdStep)}}
+    <div class="container">
+      <div class="container">
+        <h4>Beschikbare zalen</h4>
+        {{#each routeOptions}}
+        <div class="row">
+          <div class="col m8">
+            <div class="card medium">
+             <div class="card-image waves-effect waves-block waves-light">
+               <img class="activator" src="meetingroom.jpg" height="100%" width="50%" >
+             </div>
+             <div class="card-content">
+               <span class="card-title activator grey-text text-darken-4"><p><strong>{{room.name}}</strong></p>{{room.address}}<i class="material-icons right">more_vert</i></span>
+             </div>
+         	   <div class="card-action">
+                <a href={{website}} target="new">Website</a>
+             </div>
+             <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><strong>{{room.name}}</strong><i class="material-icons right">close</i></span>
+                <ul>
+         		      <li><strong>Address </Strong>{{room.address}}</li>
+         		      <li><strong>Email address </Strong>{{room.emailaddress}}</li>
+         		      <li><strong>Capacity </Strong>{{room.capacity}}</li>
+         		      <li><strong>Opening hours </Strong>{{room.openinghours}}</li>
+         		      <li><strong>Conditions </Strong>{{room.conditions}}</li>
+         		      <li><strong>Infrastructure </Strong>
+         			        <ul>
+         				           {{#each room.infrastructure}}
+         				              <li style="margin-left: 40px">{{type}} ({{number}})</li>
+         				                 {{/each}}
+         			        </ul>
+         		      </li>
+         	      </ul>
+             </div>
+           </div>
+         </div>
+         <div class="col m4">
+           <div class="row"></div>
+            {{#each content}}
+             <div class="row">
+               <div class="col m6 left"> {{participant.name}} </div>
+               <div class="col m3"> {{duration}} </div>
+               <div class="col m3 left"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
+             </div>
+            {{/each}}
+
+           <div class="row center">
+               <button class="btn waves-effect waves-light" type="submit" name="action">Selecteer deze zaal</button>
+           </div>
+         </div>
+      </div>
+
+
+      {{/each}}
+        </div>
+        <input type="button" id="stepThreeButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+    </div>
+  {{/if}}
+
+  {{#if (fourthStep)}}
+    <div class="container">
+        <h4>Overzicht van uw reservatie</h4>
+        <div class="card lighten-1">
+          <div class="card-content black-text">
+            <span class="card-title">Datum - Tijd</span>
+              <p><strong>Locatie:</strong> Geselecteerde locatie <br>
+                <strong>Organisator:</strong> Organisator naam <br>
+                <strong>Aanwezigen:</strong>
+                <ul>
+
+                <li style="margin-left: 40px">  naam van de aanwezigen </li>
+                 
+               </ul>
+             </p>
+          </div>
+        </div>
+
+      <input type="button" id="stepFourButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Bevestig mijn reservatie">
+    </div>
+  {{/if}}
+
+</template>
