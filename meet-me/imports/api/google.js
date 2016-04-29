@@ -1,17 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.methods({
-    'getRoute': function(arrivalTime, addressesParticipants, addressesRooms ){
+    'getRoute': function(arrivalTime, participants, rooms){
 
           var results = [];
 
-          addressesRooms.forEach(function (addressRoom){
+          rooms.forEach(function (room){
             var participantsInfoForRoom = [];
             var maximalDuration = 0;
-            addressesParticipants.forEach(function (addressParticipant){
-              var response = calculateDistanceBetweenTwoAddresses(addressParticipant, addressRoom);
+            participants.forEach(function (participant){
+              var response = calculateDistanceBetweenTwoAddresses(participant.address, room.address);
               response.data.rows.forEach(function(row){
-                var participantInfoForRoom = {"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": addressParticipant, "room": addressRoom};
+                var participantInfoForRoom = {"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": participant, "room": room};
                 participantsInfoForRoom.push(participantInfoForRoom);
                 var currentDuration = parseGoogleDurationToInteger(participantInfoForRoom.duration);
                 if (maximalDuration < currentDuration){
@@ -19,7 +19,7 @@ Meteor.methods({
                 }
               });
             });
-            results.push({"content": participantsInfoForRoom, "room": addressRoom, "maximalDuration": maximalDuration});
+            results.push({"content": participantsInfoForRoom, "room": room, "maximalDuration": maximalDuration});
           });
 
           results = results.sort(function (a,b){

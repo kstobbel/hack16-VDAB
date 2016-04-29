@@ -38,23 +38,23 @@ Template.makereservation.events({
     Session.set("secondStep", null);
     Session.set("thirdStep", true);
 
-    var participants = Session.get("selectedUsers");
-    var addressesParticipants = [];
+    var participantsOwners = Session.get("selectedUsers");
+    var participants = [];
 
-    participants.forEach(function (participant){
-      var user = Users.findOne({"owner": participant});
-      addressesParticipants.push(user.address);
+    participantsOwners.forEach(function (participantOwner){
+      var user = Users.findOne({"owner": participantOwner});
+      participants.push(user);
     });
 
-    var addressesRooms = [];
-    var rooms = Rooms.find({});
+    var strangeRooms = Rooms.find({});
+    var rooms = [];
 
-    rooms.forEach(function (room){
-      addressesRooms.push(room.address);
+    strangeRooms.forEach(function (strangeRoom){
+      console.log(strangeRoom.address);
+      rooms.push(strangeRoom);
     });
 
-
-    var test = Meteor.call('getRoute', 10221939, addressesParticipants, addressesRooms, function(err, result){
+    var test = Meteor.call('getRoute', 10221939, participants, rooms, function(err, result){
         if (err) {
           window.alert("Error: " + err.reason);
         } else {
