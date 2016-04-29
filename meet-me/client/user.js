@@ -22,6 +22,7 @@ Template.user.events({
       SelectedUsers = _(SelectedUsers).filter(su => su != ownerId);
       $("#"+ownerId+" i").removeClass("light-green");
     }
+    Session.put("selectedUsers");
     console.log(SelectedUsers);
   }
 });
