@@ -120,7 +120,7 @@ Template.makereservation.events({
     var selectedRouteOption = Session.get("selectedRouteOption");
     var participants = [];
     selectedRouteOption.content.forEach(function(route){
-      participants.push(route.participant.owner);
+      participants.push({"attendeeId": route.participant.owner});
     });
 
     Meteor.call('reservations.insert', "13/06/2016", "13u", participants, selectedRouteOption.room.id, "Hoera, een meeting!");

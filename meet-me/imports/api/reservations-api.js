@@ -13,12 +13,12 @@ Meteor.methods({
     }
 
     Reservations.insert({
-		time: time,
-		date: date,
-		remarks:remarks,
-		owner: Meteor.userId(),
-		attendees: [useridList],
-		location: loc,
+  		time: time,
+  		date: date,
+  		remarks:remarks,
+  		owner: Meteor.userId(),
+  		attendees: useridList,
+  		location: loc,
     });
   },
 
