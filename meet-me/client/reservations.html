@@ -1,13 +1,77 @@
 <template name="reservations">
   <h4>Reservations</h4>
+    <div class="container">
+  <h5>List of reservations</h5>
+
   <p> Wauw, it's a list of all my reservations!</p>
 
 	{{#each reservations}}
-	<p>{{date}}</p>
+	<div class="row">
+        <div class="col s12 m6">
+          <div class="card blight-green lighten-1">
+            <div class="card-content black-text">
+              <span class="card-title">{{date}}  -{{time}}</span>
+              <p>Location: {{location}} <br>
+                 Attendees: {{attendees}} <br>
+                 Remarks: {{remarks}}</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Update this reservation</a>
+              <a href="#">Delete this reservation</a>
+            </div>
+          </div>
+        </div>
+      </div>
 	{{/each}}
 
-  
+<h5>Add a new reservation</h5>
+
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="date" type="text" class="validate">
+        <label for="Date">Date</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="time" type="text" class="validate">
+        <label for="Time">Time</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="attendee1" type="text" class="validate">
+        <label for="attendee1">Attendee1</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="attendee2" type="text" class="validate">
+        <label for="attendee2">Attendee2</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="attendee3" type="text" class="validate">
+        <label for="attendee3">Attendee3</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="location" type="text" class="validate">
+        <label for="location">Location</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="remarks" type="text" class="validate">
+        <label for="remarks">Remarks</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+
+
+</div>
+
+
 </template>
-
-
-
