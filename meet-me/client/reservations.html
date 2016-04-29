@@ -1,10 +1,7 @@
 <template name="reservations">
-  <h4>Reservations</h4>
-    <div class="container">
-  <h5>List of reservations</h5>
-
-  <p> Wow, een lijst met al mijn reservaties!</p>
-  <h6>Reservaties die ik organiseer</h6>
+  <div class="container">
+    <h3> Reservaties </h3>
+    <h5>Reservaties die ik organiseer</h5>
 	{{#each myReservations}}
 
 	<div class="row">
@@ -31,7 +28,7 @@
       </div>
 
   {{/each}}
-  <h6>Reservaties waarvoor ik ben uitgenodigd</h6>
+  <h5>Reservaties waarvoor ik ben uitgenodigd</h5>
   {{#each attendReservations}}
 
 	<div class="row">
