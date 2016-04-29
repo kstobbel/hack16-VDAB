@@ -13,6 +13,7 @@ import './time.js'
 import './results.js'
 import './make-reservation.js'
 
+
 import './main.html';
 
 Router.route('/', {
@@ -39,6 +40,7 @@ Router.route('/rooms', {
     name: 'rooms',
     template: 'rooms'
 });
+
 
 Router.route('/profile', {
     name: 'profile',
