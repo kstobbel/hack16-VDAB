@@ -2,8 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
-export const Reservations = new Mongo.Collection('reservations');
 
+export const Reservations = new Mongo.Collection('reservations');
+console.log(Reservations.find({}).count());
 
 Meteor.methods({
   'reservations.insert'(date, time, useridList, loc, remarks) {
@@ -11,7 +12,7 @@ Meteor.methods({
     if (! Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
- 
+
     Reservations.insert({
 		time: time,
 		date: date,
@@ -21,15 +22,14 @@ Meteor.methods({
 		location: loc,
     });
   },
-  
+
   'reservations.find'(userid) {
 	 if (! Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
-    } 
-	  
+    }
+
 	return(Reservations.find({ owner: Meteor.userId()}));
   },
-  
+
 
 });
-

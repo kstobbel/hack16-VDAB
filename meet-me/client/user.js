@@ -14,9 +14,13 @@ Template.user.helpers({
 Template.user.events({
   'click .userselected'(event, instance) {
     var ownerId = event.currentTarget.name;
-    console.log("User selected " + ownerId);
+
     if(!_(SelectedUsers).contains(ownerId)){
         SelectedUsers.push(ownerId);
+        $("#"+ownerId+" i").addClass("light-green");
+    }else{
+      SelectedUsers = _(SelectedUsers).filter(su => su != ownerId);
+      $("#"+ownerId+" i").removeClass("light-green");
     }
     console.log(SelectedUsers);
   }
