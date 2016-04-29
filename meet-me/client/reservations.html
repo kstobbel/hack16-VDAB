@@ -1,7 +1,7 @@
 <template name="reservations">
   <div class="container">
     <h3> Reservaties </h3>
-    <h5>Reservaties die ik organiseer</h5>
+    <h5>Reservaties die ik heb gemaakt</h5>
 	{{#each myReservations}}
 
 	<div class="row">
@@ -20,8 +20,7 @@
                    <strong>Opmerkingen:</strong> {{remarks}}</p>
             </div>
             <div class="card-action">
-              <a href="#">Bewerk deze reservatie</a>
-              <a href="#">Annuleer deze reservatie</a>
+              <button class="btn waves-effect waves-teal" type="delete" id="deleteReservation" name="action" value="{{_id}}">Annuleren</button>
             </div>
           </div>
         </div>
@@ -47,8 +46,7 @@
                    <strong>Opmerkingen:</strong> {{remarks}}</p>
             </div>
             <div class="card-action">
-              <a href="#">Bewerk deze reservatie</a>
-              <a href="#">Annuleer deze reservatie</a>
+              <button class="btn waves-effect waves-teal" type="delete" id="declineReservation" name="action" value="{{_id}}">Weigeren</button>
             </div>
           </div>
         </div>

@@ -25,4 +25,25 @@ Template.reservations.helpers({
     return "";
   },
 
+
+
+});
+
+Template.reservations.events({
+  "click #deleteReservation": function(event){
+
+    var resId = $(event.target).prop("value");
+    Meteor.call('reservations.remove', resId);
+
+  },
+
+  "click #declineReservation": function(event){
+
+    console.log("check!");
+    var resId = $(event.target).prop("value");
+    console.log(resId);
+    Meteor.call('reservations.removeAttendee', resId, Meteor.userId());
+
+  },
+
 });
