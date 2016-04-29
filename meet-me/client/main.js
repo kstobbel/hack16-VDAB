@@ -45,15 +45,9 @@ Router.route('/profile', {
     template: 'profile'
 });
 
-
 Router.route('/reservations', {
     name: 'reservations',
     template: 'reservations'
-});
-
-Router.route('/time', {
-    name: 'time',
-    template: 'time'
 });
 
 Router.route('/results', {

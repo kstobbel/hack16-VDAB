@@ -12,6 +12,6 @@ Template.time.events({
 });
 
 Template.time.rendered=function() {
-    $('.datepicker').pickadate();
-    $('.timepicker').pickatime();
+    Template.instance().$('.datepicker').pickadate();
+    Template.instance().$('.timepicker').pickatime();
 }
