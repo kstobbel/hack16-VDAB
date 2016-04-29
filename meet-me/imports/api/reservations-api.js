@@ -4,7 +4,6 @@ import { check } from 'meteor/check';
 
 
 export const Reservations = new Mongo.Collection('reservations');
-console.log(Reservations.find({}).count());
 
 Meteor.methods({
   'reservations.insert'(date, time, useridList, loc, remarks) {
@@ -18,7 +17,7 @@ Meteor.methods({
 		date: date,
 		remarks:remarks,
 		owner: Meteor.userId(),
-		attendees: useridList,
+		attendees: [useridList],
 		location: loc,
     });
   },
