@@ -46,6 +46,9 @@ Template.makereservation.events({
       participants.push(user);
     });
 
+    var currentUser = Users.findOne({"owner": Meteor.userId()});
+    participants.push(currentUser);
+
     var strangeRooms = Rooms.find({});
     var rooms = [];
 
