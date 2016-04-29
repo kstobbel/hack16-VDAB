@@ -61,7 +61,7 @@
             {{/each}}
 
            <div class="row center">
-               <button class="btn waves-effect waves-light" type="submit" name="action">Boek</button>
+               <button class="btn waves-effect waves-light" type="submit" name="action">Selecteer deze zaal</button>
            </div>
          </div>
       </div>
@@ -69,6 +69,29 @@
 
       {{/each}}
         </div>
+        <input type="button" id="stepThreeButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+    </div>
+  {{/if}}
+
+  {{#if (fourthStep)}}
+    <div class="container">
+        <h4>Overzicht van uw reservatie</h4>
+        <div class="card lighten-1">
+          <div class="card-content black-text">
+            <span class="card-title">Datum - Tijd</span>
+              <p><strong>Locatie:</strong> Geselecteerde locatie <br>
+                <strong>Organisator:</strong> Organisator naam <br>
+                <strong>Aanwezigen:</strong>
+                <ul>
+
+                <li style="margin-left: 40px">  naam van de aanwezigen </li>
+                 
+               </ul>
+             </p>
+          </div>
+        </div>
+
+      <input type="button" id="stepFourButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Bevestig mijn reservatie">
     </div>
   {{/if}}
 

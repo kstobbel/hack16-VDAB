@@ -8,7 +8,7 @@ var SelectedUsers = [];
 
 Template.user.helpers({
     getAllUserInfo() {
-      return Users.find({});
+      return Users.find({owner: {$ne: Meteor.userId()}});
     },
 });
 

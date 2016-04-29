@@ -5,11 +5,15 @@ import { Mongo } from 'meteor/mongo';
 
 import { Users } from '../imports/api/users.js';
 import { Rooms } from '../imports/api/rooms.js';
+import { Reservations } from '../imports/api/reservations-api.js';
 
 import './make-reservation.html';
 import './user.js'
 
 Session.set("firstStep", true);
+Session.set("secondStep", false);
+Session.set("thirdStep", false);
+Session.set("fourthStep", false);
 
 Template.makereservation.helpers({
   firstStep: function(){
@@ -22,6 +26,10 @@ Template.makereservation.helpers({
 
   thirdStep: function () {
     return Session.get("thirdStep") || [];
+  },
+
+  fourthStep: function () {
+    return Session.get("fourthStep") || [];
   },
 
   routeOptions: function () {
@@ -64,5 +72,17 @@ Template.makereservation.events({
         }
     });
 
-  }
+  },
+  "click #stepThreeButton": function(event){
+    Session.set("thirdStep", null);
+    Session.set("fourthStep", true);
+  },
+  "click #stepFourButton": function(event){
+    Session.set("fourthStep", null);
+
+    Meteor.call('reservations.insert', "13/06/2016", "13u", ["r3yh7FsNtDPT5bMdG","r3yh7FsNtDPT5bMdG" ], "2", "Hoera, een meeting!");
+
+    Router.go('/reservations');
+
+  },
 });
