@@ -15,6 +15,7 @@ Session.set("secondStep", false);
 Session.set("thirdStep", false);
 Session.set("fourthStep", false);
 
+
 Template.makereservation.helpers({
   firstStep: function(){
     return Session.get("firstStep") || [];
@@ -39,6 +40,7 @@ Template.makereservation.helpers({
 
 Template.makereservation.events({
   "click #stepOneButton": function(event){
+    console.log(event);
     Session.set("firstStep", null);
     Session.set("secondStep", true);
   },
@@ -53,6 +55,9 @@ Template.makereservation.events({
       var user = Users.findOne({"owner": participantOwner});
       participants.push(user);
     });
+
+    var currentUser = Users.findOne({"owner": Meteor.userId()});
+    participants.push(currentUser);
 
     var strangeRooms = Rooms.find({});
     var rooms = [];
