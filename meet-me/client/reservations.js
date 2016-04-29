@@ -13,6 +13,10 @@ Template.reservations.helpers({
 	 console.log(Reservations.find({}).count());
     return Reservations.find({});
   },
+  rooms(roomid) {
+    return Rooms.findOne({id: roomid});
+  },
+
 });
 
 Template.reservations.events({
