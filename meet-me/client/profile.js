@@ -9,6 +9,7 @@ Template.profile.helpers({
       if(doc){
         return [doc];
       } else {
+
         Users.insert({
           owner: Meteor.userId(),
   //        email: Meteor.user().emails[0].address,
@@ -19,10 +20,21 @@ Template.profile.helpers({
           ]
         });
         return [Users.findOne({owner: Meteor.userId()})];
+
+        if(Meteor.user()){
+          Users.insert({
+            owner: Meteor.userId(),
+            email: Meteor.user().emails[0].address,
+            transportations:[
+              {type: "Bike", isOption: false },
+              {type: "Car", isOption: false},
+              {type: "PublicTransportation", isOption: false}
+            ]
+          });
+          return [Users.findOne({owner: Meteor.userId()})];
+        }
+
       }
-    },
-    getAllUserInfos() {
-      return Users.find({});
     },
 });
 

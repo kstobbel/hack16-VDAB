@@ -11,12 +11,18 @@ import './rooms.js'
 import './reservations.js'
 import './time.js'
 import './results.js'
+import './make-reservation.js'
 
 import './main.html';
 
 Router.route('/', {
     name:'home',
     template: 'home'
+});
+
+Router.route('/make-reservation', {
+    name: 'make-reservation',
+    template: 'makereservation'
 });
 
 Router.route('/user', {
@@ -44,7 +50,7 @@ Router.route('/reservations', {
     name: 'reservations',
     template: 'reservations'
 });
-	
+
 Router.route('/time', {
     name: 'time',
     template: 'time'

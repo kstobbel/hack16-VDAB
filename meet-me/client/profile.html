@@ -17,13 +17,10 @@
         <input type="text" name="emailUser" value="{{email}}" readonly="true" disabled>
         <br/>
         {{#each transportations}}
-          <input type="checkbox" name="{{type}}" value="{{isOption}}"> <label>{{type}}</label><br/>
+          <div class="col m4 center">
+            <img src="{{type}}.png" style="{color:red}" width="50" length="50" alt="" class="responsive-img">
+          </div>
         {{/each}}
-        <div class="row">
-          <div class="col m4 center red"><img src="car.png" width="50" length="50" alt="" class="responsive-img"></div>
-          <div class="col m4 center light green"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
-          <div class="col m4 center light green"><img src="public_transport.png" width="50" length="50" alt="" class="responsive-img"></div>
-        </div>
         <br/>
       </div>
     {{/each}}
