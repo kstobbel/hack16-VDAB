@@ -13,8 +13,9 @@ Meteor.methods({
               response.data.rows.forEach(function(row){
                 var participantInfoForRoom = {"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": addressParticipant, "room": addressRoom};
                 participantsInfoForRoom.push(participantInfoForRoom);
-                if (maximalDuration < participantInfoForRoom.duration){
-                  maximalDuration = participantInfoForRoom.duration;
+                var currentDuration = parseGoogleDurationToInteger(participantInfoForRoom.duration);
+                if (maximalDuration < currentDuration){
+                  maximalDuration = currentDuration;
                 }
               });
             });
@@ -31,6 +32,18 @@ Meteor.methods({
 
         },
 });
+
+function parseGoogleDurationToInteger(googleDuration){
+  console.log("Google duration: " + googleDuration);
+  var splittedGoogleDuration = googleDuration.split(" ");
+  if (splittedGoogleDuration.length > 3){
+    console.log(parseInt(splittedGoogleDuration[0]*60) + parseInt(splittedGoogleDuration[2], 10));
+    return parseInt(splittedGoogleDuration[0]*60) + parseInt(splittedGoogleDuration[2], 10);
+  } else {
+    console.log(splittedGoogleDuration[0]);
+    return splittedGoogleDuration[0];
+  }
+}
 
 function calculateDistanceBetweenTwoAddresses(addressA, addressB){
   var response = HTTP.call( 'GET', 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + addressA + '&destinations=' + addressB + '&arrival_time=1463295600000&key=AIzaSyB2LZ7QHgblMmotbJzvzKk9Eo6rKWfty5k', {timeout:30000});
