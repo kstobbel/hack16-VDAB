@@ -46,11 +46,12 @@ Template.makereservation.helpers({
   },
 
   startTime: function () {
-    return Session.get("selectedFrom") || [];
+    return Session.get("selectedFrom");
   },
 
   endTime: function () {
-    return Session.get("selectedUntil") || [];
+    console.log("SELECTEDUNTIL");
+    return Session.get("selectedUntil");
   },
 
   selectedDate: function () {
@@ -123,7 +124,7 @@ Template.makereservation.events({
       participants.push({"attendeeId": route.participant.owner});
     });
 
-    Meteor.call('reservations.insert', "13/06/2016", "13u", participants, selectedRouteOption.room.id, "Hoera, een meeting!");
+    Meteor.call('reservations.insert', Session.get("selectedDate"), Session.get("selectedFrom"), participants, selectedRouteOption.room.id, "Hoera, een meeting!");
 
     Router.go('/reservations');
     Session.set("firstStep", true);
