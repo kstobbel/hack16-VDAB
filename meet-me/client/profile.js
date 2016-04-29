@@ -15,7 +15,7 @@ Template.profile.helpers({
             email: Meteor.user().emails[0].address,
             transportations:[
               {type: "Bike", isOption: false },
-              {type: "Car1", isOption: false},
+              {type: "Car", isOption: false},
               {type: "PublicTransportation", isOption: false}
             ]
           });
