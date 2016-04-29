@@ -23,13 +23,7 @@ Meteor.methods({
     });
   },
 
-  'reservations.find'(userid) {
-	 if (! Meteor.userId()) {
-      throw new Meteor.Error('not-authorized');
-    }
 
-	return(Reservations.find({ owner: Meteor.userId()}));
-  },
 
 
 });
