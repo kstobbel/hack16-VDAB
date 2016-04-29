@@ -3,14 +3,16 @@
   {{#if (firstStep)}}
     <div class="container">
       {{>user}}
-      <input type="button" id="stepOneButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+
+      <input type="button" id="stepOneButton" align="right" class="btn-large waves-effect waves-light light-green lighten-1 right-align" value="Volgende stap">
     </div>
   {{/if}}
 
   {{#if (secondStep)}}
     <div class="container">
       {{>time}}
-      <input type="button" id="stepTwoButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+      <input type="button" id="stepTwoBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
+      <input type="button" id="stepTwoButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Volgende stap">
     </div>
   {{/if}}
 
@@ -69,7 +71,8 @@
 
       {{/each}}
         </div>
-        <input type="button" id="stepThreeButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+        <input type="button" id="stepThreeBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
+        <input type="button" id="stepThreeButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Volgende stap">
     </div>
   {{/if}}
 
@@ -90,7 +93,7 @@
              </p>
           </div>
         </div>
-
+      <input type="button" id="stepFourBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
       <input type="button" id="stepFourButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Bevestig mijn reservatie">
     </div>
   {{/if}}

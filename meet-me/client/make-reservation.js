@@ -39,7 +39,6 @@ Template.makereservation.helpers({
 
 Template.makereservation.events({
   "click #stepOneButton": function(event){
-    console.log(event);
     Session.set("firstStep", null);
     Session.set("secondStep", true);
   },
@@ -87,6 +86,23 @@ Template.makereservation.events({
     Meteor.call('reservations.insert', "13/06/2016", "13u", ["r3yh7FsNtDPT5bMdG","r3yh7FsNtDPT5bMdG" ], "2", "Hoera, een meeting!");
 
     Router.go('/reservations');
+    Session.set("firstStep", true);
 
   },
+  "click #stepTwoBackButton": function(event){
+
+    Session.set("secondStep", null);
+    Session.set("firstStep", true);
+  },
+  "click #stepThreeBackButton": function(event){
+
+    Session.set("thirdStep", null);
+    Session.set("secondStep", true);
+  },
+  "click #stepFourBackButton": function(event){
+
+    Session.set("fourthStep", null);
+    Session.set("thirdStep", true);
+  },
+
 });
