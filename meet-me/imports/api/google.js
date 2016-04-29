@@ -5,22 +5,35 @@ Meteor.methods({
 
           var results = [];
 
-          addressesParticipants.forEach(function (addressParticipant){
-            addressesRooms.forEach(function (addressRoom){
+          addressesRooms.forEach(function (addressRoom){
+            var participantsInfoForRoom = [];
+            var maximalDuration = 0;
+            addressesParticipants.forEach(function (addressParticipant){
               var response = calculateDistanceBetweenTwoAddresses(addressParticipant, addressRoom);
               response.data.rows.forEach(function(row){
-                results.push({"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": addressParticipant, "room": addressRoom});
+                var participantInfoForRoom = {"distance": row.elements[0].distance.text, "duration": row.elements[0].duration.text, "participant": addressParticipant, "room": addressRoom};
+                participantsInfoForRoom.push(participantInfoForRoom);
+                if (maximalDuration < participantInfoForRoom.duration){
+                  maximalDuration = participantInfoForRoom.duration;
+                }
               });
             });
+            results.push({"content": participantsInfoForRoom, "room": addressRoom, "maximalDuration": maximalDuration});
           });
 
+          results = results.sort(function (a,b){
+            console.log(a.maximalDuration);
+            return a.maximalDuration - b.maximalDuration;
+          });
+
+          console.log(results);
           return results;
 
         },
 });
 
 function calculateDistanceBetweenTwoAddresses(addressA, addressB){
-  const response = HTTP.call( 'GET', 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + addressA + '&destinations=' + addressB + '&arrival_time=1463295600000&key=AIzaSyB2LZ7QHgblMmotbJzvzKk9Eo6rKWfty5k', {timeout:30000});
+  var response = HTTP.call( 'GET', 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + addressA + '&destinations=' + addressB + '&arrival_time=1463295600000&key=AIzaSyB2LZ7QHgblMmotbJzvzKk9Eo6rKWfty5k', {timeout:30000});
   console.log(response.statusCode);
 
   if (response.statusCode == 200) {

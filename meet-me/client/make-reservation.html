@@ -20,4 +20,15 @@
     </div>
   {{/if}}
 
+  <ul>
+    {{#each routeOptions}}
+      <li>Room = {{room}}</li>
+      <ul>
+        {{#each content}}
+          <li>{{participant}}: {{distance}}, {{duration}}</li>
+        {{/each}}
+      </ul>
+      {{/each}}
+  </ul>
+
 </template>

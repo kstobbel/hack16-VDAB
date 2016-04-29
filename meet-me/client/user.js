@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Users } from '../imports/api/users.js';
+import { Session } from 'meteor/session';
 
 import './user.html'
 
@@ -22,7 +23,6 @@ Template.user.events({
       SelectedUsers = _(SelectedUsers).filter(su => su != ownerId);
       $("#"+ownerId+" i").removeClass("light-green");
     }
-    Session.put("selectedUsers");
-    console.log(SelectedUsers);
+    Session.set("selectedUsers", SelectedUsers);
   }
 });
