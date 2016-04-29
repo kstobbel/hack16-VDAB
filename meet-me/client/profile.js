@@ -34,12 +34,33 @@ Template.profile.events({
       { name: target.nameUser.value,
         address: target.addressUser.value,
         email: Meteor.user().emails[0].address,
-        transportations: [
-          {type: "Bike", isOption: false},
-          {type: "Car", isOption: true},
-          {type: "PublicTransportation", isOption: false}
-        ]
+        transportations: doc.transportations
       }
     });
   },
+  'click .selectedTransportation'(event, instance) {
+    console.log("Clicked");
+    type = event.currentTarget.name;
+    doc = Users.findOne({owner: Meteor.userId()});
+    console.log("Doc" + doc);
+    var updatedTransportation = [];
+    _(doc.transportations).forEach(t => {
+      if(t.type == type){
+        var current = t.isOption;
+        t.isOption = !current;
+        console.log("Updated from " + current + " to " + t.isOption);
+      }
+      updatedTransportation.push(t);
+    });
+
+    Users.update({_id: doc._id}, {$set:
+      { name: doc.name,
+        address: doc.address,
+        email: Meteor.user().emails[0].address,
+        transportations: updatedTransportation
+      }
+    });
+
+    console.log("Updated");
+  }
 });

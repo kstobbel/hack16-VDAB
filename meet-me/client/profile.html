@@ -16,12 +16,17 @@
         <label>Email: </label>
         <input type="text" name="emailUser" value="{{email}}" readonly="true" disabled>
         <br/>
+        <div class="row">
         {{#each transportations}}
-          <div class="col m4 center">
-            <img src="{{type}}.png" style="{color:red}" width="50" length="50" alt="" class="responsive-img">
-          </div>
+        <a id="{{type}}" class="selectedTransportation" name="{{type}}">
+          {{#if isOption}}
+             <div class="col m2 center light green"><img src="{{type}}.png" width="50" length="50" alt="" class="responsive-img"></div>
+             {{else}}
+             <div class="col m2 center red"><img src="{{type}}.png" width="50" length="50" alt="" class="responsive-img"></div>
+          {{/if}}
+        </a>
         {{/each}}
-        <br/>
+        </div>
       </div>
     {{/each}}
   </form>
