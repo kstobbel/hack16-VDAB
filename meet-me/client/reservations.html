@@ -8,12 +8,12 @@
 	{{#each reservations}}
 	<div class="row">
         <div class="col s12 m6">
-          <div class="card blight-green lighten-1">
+          <div class="card lighten-1">
             <div class="card-content black-text">
               <span class="card-title">{{date}}  -{{time}}</span>
-              <p>Location: {{location}} <br>
-                 Attendees: {{attendees}} <br>
-                 Remarks: {{remarks}}</p>
+              <p><strong>Location:</strong> {{location}} <br>
+                 <strong>Attendees:</strong> {{attendees}} <br>
+                 <strong>Remarks:</strong> {{remarks}}</p>
             </div>
             <div class="card-action">
               <a href="#">Update this reservation</a>
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-	{{/each}}
+  {{/each}}
 
 <h5>Add a new reservation</h5>
 

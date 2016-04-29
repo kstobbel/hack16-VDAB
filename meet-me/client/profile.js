@@ -11,7 +11,7 @@ Template.profile.helpers({
       } else {
         Users.insert({
           owner: Meteor.userId(),
-          email: Meteor.user().emails[0].address,
+  //        email: Meteor.user().emails[0].address,
           transportations:[
             {type: "Bike", isOption: false },
             {type: "Car", isOption: false},
@@ -34,7 +34,7 @@ Template.profile.events({
     Users.update({_id: doc._id}, {$set:
       { name: target.nameUser.value,
         address: target.addressUser.value,
-        email: Meteor.user().emails[0].address,
+    //    email: Meteor.user().emails[0].address,
         transportations: [
           {type: "Bike", isOption: false},
           {type: "Car", isOption: true},
