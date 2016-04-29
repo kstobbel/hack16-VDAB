@@ -13,30 +13,40 @@
        <a href={{website}} target="new">Website</a>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><strong>{{name}}</strong><i class="material-icons right">close</i></span>
-      <ul>
-		<li><strong>Address </Strong>{{address}}</li>
-		<li><strong>Email address </Strong>{{emailaddress}}</li>
-		<li><strong>Capacity </Strong>{{capacity}}</li>
-		<li><strong>Opening hours </Strong>{{openinghours}}</li>
-		<li><strong>Conditions </Strong>{{conditions}}</li>
-		<li><strong>Infrastructure </Strong>
-			<ul>
-				{{#each infrastructure}}
-				<li style="margin-left: 40px">{{type}} ({{number}})</li>
-				{{/each}}
-			</ul>
-		</li>
-	  </ul>
+
+      <div class="col-m6 left">
+        <span class="card-title grey-text text-darken-4"><strong>{{name}}</strong><i class="material-icons right">close</i></span>
+        <ul>
+      		<li><strong>Address </Strong>{{address}}</li>
+      		<li><strong>Email address </Strong>{{emailaddress}}</li>
+      		<li><strong>Capacity </Strong>{{capacity}}</li>
+      		<li><strong>Opening hours </Strong>{{openinghours}}</li>
+      		<li><strong>Conditions </Strong>{{conditions}}</li>
+      		<li><strong>Infrastructure </Strong>
+  			    <ul>
+  			      {{#each infrastructure}}
+  				      <li style="margin-left: 40px">{{type}} ({{number}})</li>
+  			      {{/each}}
+  			    </ul>
+  		    </li>
+  	     </ul>
+       </div>
+
+       <div class="col-m6 right">
+         <iframe
+          width="100%"
+          height="100%"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2LZ7QHgblMmotbJzvzKk9Eo6rKWfty5k&q={{name}}" allowfullscreen>
+        </iframe>
+       </div>
+
     </div>
-	
+
   </div>
 
 {{/each}}
   </div>
 
-  
+
 </template>
-
-
-

@@ -15,7 +15,6 @@ Session.set("secondStep", false);
 Session.set("thirdStep", false);
 Session.set("fourthStep", false);
 
-
 Template.makereservation.helpers({
   firstStep: function(){
     return Session.get("firstStep") || [];
