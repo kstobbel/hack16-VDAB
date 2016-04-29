@@ -35,6 +35,15 @@ Template.makereservation.helpers({
   routeOptions: function () {
     return Session.get("routeOptions") || [];
   },
+
+  selectedRouteOption: function () {
+    return Session.get("selectedRouteOption") || [];
+  },
+
+  currentUser: function () {
+    return Users.findOne({"owner": Meteor.userId()});
+  },
+
 });
 
 Template.makereservation.events({
@@ -79,11 +88,29 @@ Template.makereservation.events({
   "click #stepThreeButton": function(event){
     Session.set("thirdStep", null);
     Session.set("fourthStep", true);
+
+    console.log($(event.target).prop("value"));
+
+    var selectedRoomName = $(event.target).prop("value");
+    var routeOptions = Session.get("routeOptions");
+
+    routeOptions.forEach(function (routeOption){
+      if (routeOption.room.name === selectedRoomName){
+        Session.set("selectedRouteOption", routeOption);
+      }
+    });
+
   },
   "click #stepFourButton": function(event){
     Session.set("fourthStep", null);
 
-    Meteor.call('reservations.insert', "13/06/2016", "13u", ["r3yh7FsNtDPT5bMdG","r3yh7FsNtDPT5bMdG" ], "2", "Hoera, een meeting!");
+    var selectedRouteOption = Session.get("selectedRouteOption");
+    var participants = [];
+    selectedRouteOption.content.forEach(function(route){
+      participants.push(route.participant.owner);
+    });
+
+    Meteor.call('reservations.insert', "13/06/2016", "13u", participants, selectedRouteOption.room.id, "Hoera, een meeting!");
 
     Router.go('/reservations');
     Session.set("firstStep", true);

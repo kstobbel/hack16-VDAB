@@ -63,7 +63,7 @@
             {{/each}}
 
            <div class="row center">
-               <button class="btn waves-effect waves-light" type="submit" name="action">Selecteer deze zaal</button>
+               <button class="btn waves-effect waves-light" type="submit" id="stepThreeButton" name="action" value="{{room.name}}">Selecteer deze zaal</button>
            </div>
          </div>
       </div>
@@ -72,7 +72,6 @@
       {{/each}}
         </div>
         <input type="button" id="stepThreeBackButton"  class="btn-large waves-effect waves-light light-green lighten-1" value="Vorige stap">
-        <input type="button" id="stepThreeButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Volgende stap">
     </div>
   {{/if}}
 
@@ -82,13 +81,13 @@
         <div class="card lighten-1">
           <div class="card-content black-text">
             <span class="card-title">Datum - Tijd</span>
-              <p><strong>Locatie:</strong> Geselecteerde locatie <br>
-                <strong>Organisator:</strong> Organisator naam <br>
+              <p><strong>Locatie:</strong> {{selectedRouteOption.room.name}} <br>
+                <strong>Organisator:</strong> {{currentUser.name}} <br>
                 <strong>Aanwezigen:</strong>
                 <ul>
-
-                <li style="margin-left: 40px">  naam van de aanwezigen </li>
-
+                  {{#each selectedRouteOption.content}}
+                    <li style="margin-left: 40px">  {{participant.name}} </li>
+                  {{/each}}
                </ul>
              </p>
           </div>
