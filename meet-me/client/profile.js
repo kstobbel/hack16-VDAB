@@ -38,6 +38,9 @@ Template.profile.events({
         transportations: doc.transportations
       }
     });
+    // Materialize.toast(message, displayLength, className, completeCallback);
+    Materialize.toast('Your profile has been updated!', 4000) // 4000 is the duration of the toast
+
   },
   'click .selectedTransportation'(event, instance) {
     console.log("Clicked");
