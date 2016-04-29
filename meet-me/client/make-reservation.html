@@ -1,0 +1,23 @@
+<template name="makereservation">
+
+  {{#if (firstStep)}}
+    <div class="container">
+      {{>user}}
+      <input type="button" id="stepOneButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+    </div>
+  {{/if}}
+
+  {{#if (secondStep)}}
+    <div class="container">
+      {{>time}}
+      <input type="button" id="stepTwoButton" class="btn-large waves-effect waves-light light-green lighten-1" value="Ga naar de volgende stap">
+    </div>
+  {{/if}}
+
+  {{#if (thirdStep)}}
+    <div class="container">
+      {{>results}}
+    </div>
+  {{/if}}
+
+</template>
