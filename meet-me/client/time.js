@@ -7,7 +7,7 @@ Template.time.events({
     if(!Session.equals(currentTarget.name, newValue)){
       Session.set(currentTarget.name, newValue);
     }
-    console.log('Input ' + Session.get(currentTarget.name));
+    console.log('Input ' + ' ' + currentTarget.name + ' ' + Session.get(currentTarget.name));
   }
 });
 

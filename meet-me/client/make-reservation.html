@@ -57,7 +57,7 @@
              <div class="row">
                <div class="col m6 left"> {{participant.name}} </div>
                <div class="col m3"> {{duration}} </div>
-               <div class="col m3 left"><img src="fiets.png" width="50" length="50" alt="" class="responsive-img"></div>
+               <div class="col m3 left"><img src="Car-black.png" width="50" length="50" alt="" class="responsive-img"></div>
              </div>
             {{/each}}
 
@@ -79,7 +79,7 @@
         <h4>Overzicht van uw reservatie</h4>
         <div class="card lighten-1">
           <div class="card-content black-text">
-            <span class="card-title">{{selectedDate}} : {{selectedFrom}} - {{selectedUntil}} </span>
+            <span class="card-title">{{selectedDate}} : {{startTime}} - {{endTime}} </span>
               <p><strong>Locatie:</strong> {{selectedRouteOption.room.name}} <br>
                 <strong>Organisator:</strong> {{currentUser.name}} <br>
                 <strong>Aanwezigen:</strong>
